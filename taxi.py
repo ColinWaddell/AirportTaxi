@@ -1,19 +1,26 @@
 from FlightRadar24.api import FlightRadar24API
 
 # Glasgow airport box
-AIRPORT_CODE = "GLA"
+AIRPORT_CODE = "YQR"
 AIRPORT_BOX = (
-    (-4.453843627294303, 55.88027367773343),
-    (-4.41778953294639, 55.863108209321815),
+    (50.44045660068935, -104.68327840842834),
+    (50.42421889047764, -104.64808833115006),
 )
 
 # Glasgow runway box
 RUNWAYS = {
     "Runway 1": (
-        (55.88037245091571, -4.419115996106755),
-        (55.879722244215095, -4.417871295053562),
-        (55.86223948277189, -4.4505702926011645),
-        (55.86296170786279, -4.451257240957553),
+        (50.43958365692861, -104.6723385156276),
+        (50.44034143049153, -104.6715025835228),
+        (50.4243870659345, -104.64925656954928),
+        (50.42395712379187, -104.65012462603535),
+    ),
+
+    "Runway 2": (
+        (50.42946600480248, -104.68217447507722),
+        (50.42948735791148, -104.6578062943159),
+        (50.42879101484094, -104.65709916386622),
+        (50.42862633686695, -104.68230278674153)
     )
 }
 
@@ -49,10 +56,10 @@ def look_at_runway():
     # Get the bounds for the airport and check for planes
     api = FlightRadar24API()
     airport_box = {
-        "tl_x": AIRPORT_BOX[0][0],
-        "tl_y": AIRPORT_BOX[0][1],
-        "br_x": AIRPORT_BOX[1][0],
-        "br_y": AIRPORT_BOX[1][1],
+        "tl_x": AIRPORT_BOX[0][1],
+        "tl_y": AIRPORT_BOX[0][0],
+        "br_x": AIRPORT_BOX[1][1],
+        "br_y": AIRPORT_BOX[1][0],
     }
     bounds = api.get_bounds(airport_box)
     flights = api.get_flights(bounds=bounds) or []
