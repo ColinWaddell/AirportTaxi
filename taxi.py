@@ -61,10 +61,10 @@ def look_at_runway():
                     # We have a plane in the runway box, so print out some info
                     origin = flight.origin_airport_iata or ""
                     dest = flight.destination_airport_iata or ""
-                    landing = (origin == AIRPORT_CODE)
+                    landing = (dest == AIRPORT_CODE)
 
                     print(
-                        f"{runway_name} --> {flight.callsign} | {'LANDING' if landing else 'TAKING OFF'} | {origin} -> {dest}"
+                        f"{runway_name} -> {flight.callsign} | {origin} to {dest} | {'LANDING' if landing else 'TAKING OFF'}"
                     )
 
 
