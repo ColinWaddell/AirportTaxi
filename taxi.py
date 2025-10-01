@@ -1,7 +1,5 @@
 from FlightRadar24.api import FlightRadar24API
 
-SUMMARY_URL = "https://fr24api.flightradar24.com/api/flight-summary/light?flight_ids="
-
 # Glasgow airport box
 AIRPORT_CODE = "GLA"
 AIRPORT_BOX = (
